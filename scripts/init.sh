@@ -11,6 +11,7 @@ wget https://packages.erlang-solutions.com/erlang-solutions_2.0_all.deb && sudo 
 sudo apt-get update
 sudo apt-get install $DEPS $EXTRA_DEPS -y
 mix local.hex --force
+mix local.rebar --force
 mix archive.install hex phx_new --force
 # mix help phx.new -- use help instead of --help
 cd mazaryn
