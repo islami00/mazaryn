@@ -1,6 +1,9 @@
 image:
   file: .github/dockerfiles/Dockerfile.ubuntu-base
   context: .github
+tasks:
+  - init: sh scripts/init.sh
+    command: cd ../mazaryn-front && npm run dev
 vscode:
   extensions:
     - ms-vscode.cpptools
