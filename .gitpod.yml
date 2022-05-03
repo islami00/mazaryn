@@ -1,9 +1,10 @@
 image:
   file: .github/dockerfiles/Dockerfile.ubuntu-base
   context: .github
+# Note: phx.server usually has cmd name beam.smp. You'll need that to search ps or grab pid as shown
 tasks:
   - init: sh scripts/init.sh
-    command: cd ../mazaryn-front && npm run dev
+    command: mix phx.server & cd ../mazaryn-front && npm run dev
 vscode:
   extensions:
     - ms-vscode.cpptools

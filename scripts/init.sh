@@ -15,15 +15,14 @@ mix archive.install hex phx_new --force
 # mix help phx.new -- use help instead of --help
 cd mazaryn
 mix deps.get
-mix install
 # Postgresql
 sudo service postgresql start
-# sudo -u postgres -i
-sudo -u postgres createuser gitpod
+# sudo -u postgres -i to switch to postgres user
+# This is mostly cuz psql and such try to connect with a pswd. Which hasn't been configured. I think. That or password invalid.
+sudo -u postgres psql -c "CREATE USER gitpod with SUPERUSER PASSWORD 'gitpod';"
 createdb
-# Copy config
-cp scripts/gp.exs config/dev.exs
-mix ecto.setup
+sudo -u postgres psql -c "ALTER USER postgres with SUPERUSER PASSWORD 'postgres';"
+
 # Dev
-sudo apt-get install inotify-tools -y
+mix ecto.setup
 mix phx.server
