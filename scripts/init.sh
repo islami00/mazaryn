@@ -4,6 +4,10 @@ git clone https://github.com/mazarynxyz/mazaryn-front.git
 cd mazaryn-front/
 npm install
 cd ..
+git clone https://github.com/mazarynxyz/mazaryn-frontend
+cd mazaryn-frontend/
+npm install --legacy-peer-deps # react-hashtag conflict.
+cd ..
 # elixir/pheonix setup
 EXTRA_DEPS="inotify-tools"
 DEPS="esl-erlang elixir"
@@ -26,4 +30,3 @@ sudo -u postgres psql -c "ALTER USER postgres with SUPERUSER PASSWORD 'postgres'
 
 # Dev
 mix ecto.setup
-mix phx.server
