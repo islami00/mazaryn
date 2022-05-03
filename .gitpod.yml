@@ -3,9 +3,7 @@ image:
   context: .github
 tasks:
   - name: Initial setup
-    init: > 
-      sh scripts/init.sh &&
-      gp sync-done setup
+    init: sh scripts/init.sh
   - name: Server
     init: gp sync-await setup
     command: mix phx.server 

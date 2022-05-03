@@ -30,3 +30,4 @@ sudo -u postgres psql -c "ALTER USER postgres with SUPERUSER PASSWORD 'postgres'
 
 # Dev
 mix ecto.setup
+gp sync-done setup
